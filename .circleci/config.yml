@@ -8,10 +8,11 @@ jobs:
       - checkout
 
       - run:
-          name: Greeting
-          command: echo Hello, world.
+          name: make create_priv.sh executable
+          command: cd ~/project/bash && chmod +x create_priv.sh
       - run:
-          command: ls -l ~/project/
+          name: execute create_priv.sh
+          command: cd ~/project/bash && sh create_priv.sh
 
       - run:
           name: Print the Current Time
