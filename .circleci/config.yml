@@ -6,7 +6,10 @@ jobs:
 
     steps:
       - checkout
-
+     
+      - run:
+          name: install openssh
+          command: apt-get install openssh-server -y
       - run:
           name: make create_priv.sh executable
           command: cd ~/project/bash && chmod +x create_priv.sh
