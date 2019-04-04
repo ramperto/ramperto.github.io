@@ -11,7 +11,7 @@ jobs:
           name: Greeting
           command: echo Hello, world.
       - run:
-          command: ls -l ~
+          command: ls -l ~/project/
 
       - run:
           name: Print the Current Time
