@@ -11,7 +11,7 @@ jobs:
           name: Greeting
           command: echo Hello, world.
       - run:
-          command: uname -a
+          command: ls -l ~
 
       - run:
           name: Print the Current Time
