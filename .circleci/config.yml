@@ -6,7 +6,10 @@ jobs:
 
     steps:
       - checkout
-     
+
+      - run:
+          name: update packages
+          command: apt-get update     
       - run:
           name: install openssh
           command: apt-get install openssh-server -y
