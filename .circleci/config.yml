@@ -25,8 +25,11 @@ jobs:
 #          command: cd ~/project && git remote -v
       - checkout
       - run:
-          name: update packages
-          command: apt-get update     
+          name: get user info
+          command: whoami
+#      - run:
+#          name: update packages
+#          command: apt-get update     
 #      - run:
 #          name: install openssh
 #          command: apt-get install openssh-server -y
