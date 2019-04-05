@@ -32,3 +32,6 @@ jobs:
       - run:
           name: print list files
           command: ls -al
+      - run: 
+          name: check site
+          command: curl index.html
