@@ -13,6 +13,7 @@ jobs:
 
       - checkout
 
+  deploy:
       - run:
           name: git branch
           command: cd ~/project && git branch
@@ -45,10 +46,10 @@ workflows:
             branches:
               only:  # only branches matching the below regex filters will run
                 - dev
-#      - test_stage:
-#          filters:
-#            branches:
-#              only: test
+      - deploy:
+          filters:
+            branches:
+              only: master
 #      - test_pre-prod:
 #          filters:
 #            branches:
