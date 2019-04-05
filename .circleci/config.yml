@@ -14,8 +14,8 @@ jobs:
       - checkout
 
   deploy:
-    docker:
-      - image: debian:strech
+    machine:
+        enabled: true
     steps:
       - run:
           name: git branch
