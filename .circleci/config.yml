@@ -20,6 +20,7 @@ jobs:
       - run:
           name: git remote -v
           command: cd ~/project && git remote -v
+      - checkout
       - run:
           name: update packages
           command: apt-get update     
