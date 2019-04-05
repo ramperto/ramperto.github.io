@@ -17,12 +17,12 @@ jobs:
     machine:
         enabled: true
     steps:
-      - run:
-          name: git branch
-          command: cd ~/project && git branch
-      - run:
-          name: git remote -v
-          command: cd ~/project && git remote -v
+#      - run:
+#          name: git branch
+#          command: cd ~/project && git branch
+#      - run:
+#          name: git remote -v
+#          command: cd ~/project && git remote -v
       - checkout
       - run:
           name: update packages
