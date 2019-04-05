@@ -1,17 +1,55 @@
+version: 2
+jobs:
+  build:
+    docker:
+      - image: debian:stretch
+#      - image: 
+    steps:
+#      - checkout
+
+      - run:
+          name: installing git
+          command: apt-get update && apt-get install -y git
+
+      - checkout
+
+      - run:
+          name: git branch
+          command: cd ~/project && git branch
+      - run:
+          name: git remote -v
+          command: cd ~/project && git remote -v
+      - run:
+          name: update packages
+          command: apt-get update     
+#      - run:
+#          name: install openssh
+#          command: apt-get install openssh-server -y
+#      - run:
+#          name: make create_priv.sh executable
+#          command: cd ~/project/bash && chmod +x create_priv.sh
+#      - run:
+#          name: execute create_priv.sh
+#          command: cd ~/project/bash && sh create_priv.sh
+
+      - run:
+          name: print list files
+          command: ls -al
+
 workflows:
   version: 2
-  dev_stage_pre-prod:
+  build_and_deploy:
     jobs:
-      - test_dev:
+      - build:
           filters:  # using regex filters requires the entire branch to match
             branches:
               only:  # only branches matching the below regex filters will run
                 - dev
-      - test_stage:
-          filters:
-            branches:
-              only: test
-      - test_pre-prod:
-          filters:
-            branches:
-              only: master
+#      - test_stage:
+#          filters:
+#            branches:
+#              only: test
+#      - test_pre-prod:
+#          filters:
+#            branches:
+#              only: master
