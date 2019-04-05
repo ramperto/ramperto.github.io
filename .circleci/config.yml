@@ -36,6 +36,3 @@ jobs:
       - run:
           name: print list files
           command: ls -al
-      - run: 
-          name: check site
-          command: cd ~/project && curl index.htm
