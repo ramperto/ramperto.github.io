@@ -47,6 +47,8 @@ workflows:
               only:  # only branches matching the below regex filters will run
                 - dev
       - deploy:
+          requires:
+            - build
           filters:
             branches:
               only: master
