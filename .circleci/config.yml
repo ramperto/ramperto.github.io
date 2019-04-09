@@ -12,10 +12,13 @@ jobs:
       - run:
           name: present working directory
           command: pwd
+      - run:
+          name: which branch
+          command: echo ${CIRCLE_BRANCH}
 
-      - deploy:
-          command: |
-            whoami
+  deploy:
+    command: |
+      whoami
 
 #     steps:
 # #      - run:
@@ -45,14 +48,14 @@ jobs:
 #           name: print list files
 #           command: ls -al
 
-# workflows:
-#   version: 2
-#   build-and-deploy:
-#     jobs:
-#       - build
-#       - deploy:
-#           requires:
-#             - build
+workflows:
+  version: 2
+  build-and-deploy:
+    jobs:
+      - build
+      - deploy:
+          requires:
+            - build
 #          filters:
 #            branches:
 #              only: master
