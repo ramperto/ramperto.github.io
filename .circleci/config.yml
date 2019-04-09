@@ -2,33 +2,32 @@ version: 2
 jobs:
   build:
     docker:
-      - image: debian:stretch
-#      - image: 
+      - image: circleci/python:stretch
     steps:
-#      - checkout
-
-      - run:
-          name: installing git
-          command: apt-get update && apt-get install -y git
+      # - run:
+      #     name: installing git
+      #     command: apt-get update && apt-get install -y git
 
       - checkout
+      - run:
+          name: present working directory
+          command: pwd
 
   deploy:
-    docker:
-      - image: circleci/ruby:2.4-node
-    # machine:
-    #     enabled: true
-    steps:
-#      - run:
-#          name: git branch
-#          command: cd ~/project && git branch
-#      - run:
-#          name: git remote -v
-#          command: cd ~/project && git remote -v
-      - checkout
-      - run:
-          name: get user info
-          command: whoami
+    command: |
+      whoami
+
+#     steps:
+# #      - run:
+# #          name: git branch
+# #          command: cd ~/project && git branch
+# #      - run:
+# #          name: git remote -v
+# #          command: cd ~/project && git remote -v
+#       - checkout
+#       - run:
+#           name: get user info
+#           command: whoami
 #      - run:
 #          name: update packages
 #          command: apt-get update     
@@ -42,9 +41,9 @@ jobs:
 #          name: execute create_priv.sh
 #          command: cd ~/project/bash && sh create_priv.sh
 
-      - run:
-          name: print list files
-          command: ls -al
+#       - run:
+#           name: print list files
+#           command: ls -al
 
 workflows:
   version: 2
