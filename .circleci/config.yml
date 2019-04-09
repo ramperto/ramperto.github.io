@@ -9,10 +9,6 @@ jobs:
       #     command: apt-get update && apt-get install -y git
 
       - checkout
-      - run: 
-          name: "Setup custom environment variables"
-          command: |
-            echo 'export MY_ENV_VAR="FOO"' >> $BASH_ENV 
       - run:
           name: present working directory
           command: pwd
@@ -20,8 +16,8 @@ jobs:
           name: which branch
           command: echo ${CIRCLE_BRANCH}
       - run:
-          name: "What was my custom environment variable?"
-          command: echo ${MY_ENV_VAR}
+          name: The GitHub or Bitbucket username of the user who triggered the build.
+          command: echo ${CIRCLE_USERNAME}
 
   # deploy:    
   #   command: |
