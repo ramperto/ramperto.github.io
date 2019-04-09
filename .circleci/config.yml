@@ -15,6 +15,9 @@ jobs:
       - run:
           name: which branch
           command: echo ${CIRCLE_BRANCH}
+      - run:
+          name: "What was my custom environment variable?"
+          command: echo ${MY_ENV_VAR}
 
   # deploy:    
   #   command: |
