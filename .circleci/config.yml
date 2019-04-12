@@ -19,6 +19,8 @@ jobs:
           name: The GitHub or Bitbucket username of the user who triggered the build.
           command: echo ${CIRCLE_USERNAME}
 
+
+
   # deploy:    
   #   command: |
   #     whoami
@@ -34,12 +36,22 @@ jobs:
 #       - run:
 #           name: get user info
 #           command: whoami
-#      - run:
-#          name: update packages
-#          command: apt-get update     
-#      - run:
-#          name: install openssh
-#          command: apt-get install openssh-server -y
+      - run:
+          name: update packages
+          command: apt-get update     
+      - run:
+          name: install openssh
+          command: apt-get install openssh-server -y
+      - run:
+          name: update ssh keys
+          command: mkdir ~/.ssh && chmod 700 ~/.ssh
+      - run:
+          name: copy and update keys permission
+          command: cp ./temps/key_deploy ~/.ssh/id_rsa && chmod 600 ~/.ssh/id_rsa
+      - run:
+          name: clone devops scripts
+          command: git clone git@github.com:memberid/hotelis.devops.git
+
 #      - run:
 #          name: make create_priv.sh executable
 #          command: cd ~/project/bash && chmod +x create_priv.sh
