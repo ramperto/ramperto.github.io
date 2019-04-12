@@ -2,7 +2,7 @@ version: 2
 jobs:
   build:
     docker:
-      - image: circleci/python:stretch
+      - image: circleci/debian:stretch
     steps:
       # - run:
       #     name: installing git
