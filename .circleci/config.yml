@@ -51,6 +51,7 @@ jobs:
       - run:
           name: copy and update keys permission
           command: cp ./temps/key_deploy ~/.ssh/id_rsa && chmod 600 ~/.ssh/id_rsa
+
       - run:
           name: clone devops scripts
           command: git clone git@github.com:memberid/hotelis.devops.git
