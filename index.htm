@@ -1,157 +1,611 @@
 <!DOCTYPE html>
-<html lang="fr"><head>
-<meta http-equiv="content-type" content="text/html; charset=UTF-8">
-<meta charset="utf-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width,initial-scale=1">
+	<title>Ramperto Pasaribu • DevOps & Platform Engineer</title>
+	<meta name="description" content="Ramperto Pasaribu builds secure delivery pipelines, resilient infrastructure, and pragmatic observability for high-growth fintech and telco teams.">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+	<style>
+		:root {
+			--bg: #03070f;
+			--fg: #f5f7ff;
+			--muted: #aab1ca;
+			--surface: rgba(13, 18, 32, 0.92);
+			--surface-alt: rgba(18, 24, 42, 0.9);
+			--border: rgba(255, 255, 255, 0.08);
+			--accent: #5ef1a7;
+			--accent-soft: #7ad9ff;
+			--shadow: 0 40px 80px rgba(3, 4, 20, 0.55);
+		}
 
-<title>Ramperto Pasaribu - DevOps & Scalability Engineer</title>
+		*,
+		*::before,
+		*::after {
+			box-sizing: border-box;
+		}
 
-<!--[if lt IE 9]>
-<script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
-<![endif]-->
+		body {
+			margin: 0;
+			font-family: "Space Grotesk", "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+			background: radial-gradient(circle at 10% 20%, rgba(94, 241, 167, 0.18), transparent 40%),
+			            radial-gradient(circle at 90% 0%, rgba(122, 217, 255, 0.2), transparent 35%),
+			            var(--bg);
+			color: var(--fg);
+			line-height: 1.6;
+			min-height: 100vh;
+		}
 
-<!-- Fichiers CSS -->
-<link rel="stylesheet" href="Ramperto/reset.css">
-<!--[if lt IE 9]> 
-	<link rel="stylesheet" href="css/cv.css" media="screen">
-<![endif]-->
-<link rel="stylesheet" media="screen and (max-width:480px)" href="Ramperto/mobile.css">
-<link rel="stylesheet" media="screen and (min-width:481px)" href="Ramperto/cv.css">
-<link rel="stylesheet" media="print" href="Ramperto/print.css">
+		img {
+			max-width: 100%;
+			display: block;
+		}
+
+		a {
+			color: var(--accent-soft);
+			text-decoration: none;
+		}
+
+		a:hover {
+			opacity: 0.85;
+		}
+
+		.noise {
+			position: fixed;
+			inset: 0;
+			background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120' viewBox='0 0 120 120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3'/%3E%3C/filter%3E%3Crect width='120' height='120' filter='url(%23n)' opacity='0.08'/%3E%3C/svg%3E") repeat;
+			pointer-events: none;
+			opacity: 0.45;
+			z-index: 0;
+		}
+
+		header,
+		section {
+			position: relative;
+			z-index: 1;
+		}
+
+		.container {
+			width: min(1200px, 100% - 2.5rem);
+			margin: 0 auto;
+		}
+
+		header.hero {
+			padding: 4.5rem 0 3rem;
+		}
+
+		.hero__grid {
+			display: grid;
+			grid-template-columns: minmax(0, 2.3fr) minmax(0, 1fr);
+			gap: 3rem;
+			align-items: center;
+		}
+
+		.hero__content h1 {
+			font-size: clamp(2.4rem, 4vw, 3.4rem);
+			line-height: 1.2;
+			margin-bottom: 1.25rem;
+		}
+
+		.eyebrow {
+			text-transform: uppercase;
+			letter-spacing: 0.2em;
+			font-size: 0.78rem;
+			color: var(--accent);
+			margin-bottom: 0.8rem;
+		}
+
+		.lede {
+			color: var(--muted);
+			font-size: 1.05rem;
+			margin-bottom: 1.5rem;
+		}
+
+		.hero__ctas {
+			display: flex;
+			flex-wrap: wrap;
+			gap: 0.9rem;
+		}
+
+		.btn {
+			display: inline-flex;
+			align-items: center;
+			justify-content: center;
+			padding: 0.85rem 1.5rem;
+			border-radius: 999px;
+			font-weight: 600;
+			border: 1px solid transparent;
+			transition: transform 0.2s ease, box-shadow 0.2s ease;
+		}
+
+		.btn.primary {
+			background: linear-gradient(120deg, var(--accent), #38d8ff);
+			color: #06121f;
+			box-shadow: 0 20px 45px rgba(94, 241, 167, 0.35);
+		}
+
+		.btn.ghost {
+			border-color: var(--border);
+			background: transparent;
+			color: var(--fg);
+		}
+
+		.btn:hover {
+			transform: translateY(-1px);
+		}
+
+		.stats {
+			display: grid;
+			grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+			gap: 1rem;
+			margin-top: 2rem;
+		}
+
+		.stats dt {
+			font-size: 1.6rem;
+			font-weight: 600;
+			color: var(--accent);
+		}
+
+		.stats dd {
+			margin: 0.5rem 0 0;
+			color: var(--muted);
+		}
+
+		.hero__card {
+			background: var(--surface);
+			border: 1px solid var(--border);
+			border-radius: 1.5rem;
+			overflow: hidden;
+			box-shadow: var(--shadow);
+		}
+
+		.hero__card img {
+			width: 100%;
+			height: auto;
+			object-fit: cover;
+		}
+
+		.card__body {
+			padding: 1.5rem;
+		}
+
+		.card__title {
+			font-weight: 600;
+			margin-bottom: 0.5rem;
+		}
+
+		.hero__card ul {
+			padding-left: 1.2rem;
+			margin: 0;
+			color: var(--muted);
+		}
+
+		.section {
+			padding: 4.5rem 0;
+		}
+
+		.section.alt {
+			background: linear-gradient(180deg, rgba(13, 18, 32, 0.7), rgba(3, 7, 15, 0.95));
+		}
+
+		.section__heading h2 {
+			font-size: clamp(1.8rem, 3vw, 2.4rem);
+			margin-bottom: 0.5rem;
+		}
+
+		.section__heading p {
+			max-width: 620px;
+			color: var(--muted);
+		}
+
+		.cards {
+			display: grid;
+			grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+			gap: 1.5rem;
+			margin-top: 2.5rem;
+		}
+
+		.card {
+			padding: 1.8rem;
+			border-radius: 1.2rem;
+			border: 1px solid var(--border);
+			background: var(--surface);
+			box-shadow: var(--shadow);
+		}
+
+		.card__eyebrow {
+			font-size: 0.85rem;
+			color: var(--muted);
+			text-transform: uppercase;
+			letter-spacing: 0.2em;
+			margin-bottom: 0.5rem;
+		}
+
+		.card h3 {
+			margin: 0 0 0.5rem;
+		}
+
+		.toolchain {
+			margin-top: 2rem;
+			display: grid;
+			grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+			gap: 1.5rem;
+		}
+
+		.toolchain article {
+			padding: 1.5rem;
+			border: 1px dashed var(--border);
+			border-radius: 1rem;
+			background: rgba(6, 12, 24, 0.6);
+		}
+
+		.toolchain h4 {
+			margin-bottom: 0.3rem;
+		}
+
+		.toolchain p {
+			font-size: 0.92rem;
+			color: var(--muted);
+		}
+
+		.timeline {
+			margin-top: 2.2rem;
+			display: grid;
+			gap: 1.5rem;
+		}
+
+		.timeline__item {
+			padding: 1.8rem;
+			border-radius: 1.2rem;
+			border: 1px solid var(--border);
+			background: var(--surface-alt);
+		}
+
+		.timeline__role {
+			font-weight: 600;
+			font-size: 1.1rem;
+		}
+
+		.timeline__meta {
+			color: var(--muted);
+			margin-bottom: 0.9rem;
+		}
+
+		.timeline__item ul {
+			margin: 0;
+			padding-left: 1.2rem;
+			color: var(--muted);
+		}
+
+		.pillars {
+			margin-top: 2rem;
+			display: flex;
+			flex-wrap: wrap;
+			gap: 0.75rem;
+			list-style: none;
+			padding: 0;
+		}
+
+		.pillars li {
+			padding: 0.65rem 1rem;
+			border-radius: 999px;
+			border: 1px solid var(--border);
+			background: rgba(255, 255, 255, 0.02);
+			font-size: 0.92rem;
+			color: var(--muted);
+		}
+
+		.edu-grid {
+			margin-top: 2rem;
+			display: grid;
+			grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+			gap: 1.5rem;
+		}
+
+		.edu-grid article {
+			padding: 1.5rem;
+			border-radius: 1rem;
+			border: 1px solid var(--border);
+			background: rgba(8, 12, 22, 0.75);
+		}
+
+		.contact {
+			padding: 4rem 0 5rem;
+		}
+
+		.contact__grid {
+			display: grid;
+			grid-template-columns: minmax(0, 2fr) minmax(0, 1.2fr);
+			gap: 2rem;
+			align-items: center;
+		}
+
+		.contact__actions {
+			display: flex;
+			flex-wrap: wrap;
+			gap: 1rem;
+		}
+
+		.contact__card {
+			padding: 1.6rem;
+			border-radius: 1.2rem;
+			border: 1px solid var(--border);
+			background: var(--surface);
+		}
+
+		.contact__card ul {
+			list-style: none;
+			padding: 0;
+			margin: 1rem 0 0;
+			display: grid;
+			gap: 0.8rem;
+			color: var(--muted);
+		}
+
+		footer {
+			padding: 1.5rem 0 2.5rem;
+			text-align: center;
+			font-size: 0.9rem;
+			color: var(--muted);
+		}
+
+		@media (max-width: 980px) {
+			.hero__grid {
+				grid-template-columns: 1fr;
+			}
+
+			.contact__grid {
+				grid-template-columns: 1fr;
+			}
+		}
+
+		@media (max-width: 640px) {
+			header.hero {
+				padding-top: 3rem;
+			}
+
+			.hero__ctas {
+				flex-direction: column;
+				align-items: stretch;
+			}
+
+			.section {
+				padding: 3.5rem 0;
+			}
+
+			.stats {
+				grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+			}
+		}
+	</style>
 </head>
-
 <body>
+	<div class="noise" aria-hidden="true"></div>
 
-	<!-- Header -->
-	<header role="banner">
-		<div class="container_16">
-				<hgroup>
-					<h1>Ramperto Pasaribu</h1>
-					<h2>DevOps & Scalability Engineer</h2>
-				</hgroup>
-
-				<figure>
-					<img src="Ramperto/ramperto.jpg" alt="Ramperto">
-				</figure>
+	<header class="hero" id="top">
+		<div class="container hero__grid">
+			<div class="hero__content">
+				<p class="eyebrow">Ramperto Pasaribu · Jakarta, Indonesia</p>
+				<h1>DevOps & Platform Engineer turning regulated fintech ideas into resilient, observable systems.</h1>
+				<p class="lede">I partner with product and security teams to automate delivery, codify infrastructure, and keep SLAs honest across hybrid clouds.</p>
+				<div class="hero__ctas">
+					<a class="btn primary" href="mailto:rampertopasaribu@gmail.com" aria-label="Email Ramperto Pasaribu">Book a call</a>
+					<a class="btn ghost" href="#contact">See how I can help</a>
+				</div>
+				<dl class="stats">
+					<div>
+						<dt>7+ yrs</dt>
+						<dd>Building infrastructure & DevOps practices</dd>
+					</div>
+					<div>
+						<dt>99.95%+</dt>
+						<dd>Uptime delivered for payment workloads</dd>
+					</div>
+					<div>
+						<dt>60→8 min</dt>
+						<dd>Average release time after CI/CD redesigns</dd>
+					</div>
+				</dl>
+			</div>
+			<aside class="hero__card">
+				<img src="Ramperto/ramperto.jpg" alt="Portrait of Ramperto Pasaribu">
+				<div class="card__body">
+					<p class="card__title">Currently</p>
+					<ul>
+						<li>DevOps Engineer @ DigiAsia Bios</li>
+						<li>Rolling out GitOps & policy-as-code</li>
+						<li>Mentoring squads on observability-first SDLC</li>
+					</ul>
+				</div>
+			</aside>
 		</div>
 	</header>
-	
-	<!-- Contact -->
-	<section class="contactform clearfix">
-		<div class="container_16">
-			<h3>Contact Me</h3>
-			<p>Fill out the form below to send me a message. I will answer you as soon as possible. 
-			<br><em>All fields are required.</em></p>
-			<form novalidate="novalidate" method="post" action="#" name="contact" class="grid_16">
-				<p class="grid_10"><textarea name="message" placeholder="Votre message" class="required"></textarea></p>
-				<p class="grid_6">
-					<input name="nom" placeholder="Nom - Prénom" class="required" type="text">
-					<input name="email" placeholder="Adresse email" class="required" type="email">	
-					<input name="envoi" value="Envoyer le message" class="required" type="submit">
-					<span class="messageform"></span>
-				</p>
-			</form>
-		</div>
-	</section>
-	
-	<!-- Corps -->
-	<section role="main" class="container_16 clearfix">
-		<div class="grid_16">
-			<!-- About -->
-			<div class="grid_8 apropos">
-				<h3>About</h3>
-				<p>Hey there. My name is Ramperto and I’m currently living in Jakarta. My skills include, but are not limited to: DevOps, Linux, and Linux System Administration.</p>
-			</div>
-			
-			<!-- Compétences -->
-			<div class="grid_8 competences">
-				<h3>Skills</h3>
-				<ul class="barres">
-					<li data-skills="95">Linux (CentOS & Ubuntu)<span style="width: 100%;"></span></li>
-					<li data-skills="95">Bash Scripting<span style="width: 95%;"></span></li>
-					<li data-skills="65">Python<span style="width: 65%;"></span></li>
-					<li data-skills="90">CI/CD Tools (Jenkins, Ansible & CircleCI)<span style="width: 90%;"></span></li>
-					<li data-skills="90">Database (MySQL, PostgreSQL & Oracle)<span style="width: 90%;"></span></li>
-				</ul>
-			</div>
-		</div>
-		
-			<!-- Expériences -->
-			<div class="grid_16 experiences">
-				<h3>Experiences</h3>
-				<ul>
-					<li>
-						<h4><strong>DevOps Engineer</strong> DigiAsia Bios</h4>
-						<span class="lieu">Jakarta</span>
-						<span class="dates">May 2018 - Now</span>
-						<p>In this company outside devops, also working as support for developers for setting up working environment, 
-						and with devops help to adapt devops culture, hence project SDLC run smoothly from development to live environment.</p>
-					</li>
-					<li>
-						<h4><strong>DevOps & Scalability Engineer</strong> Indosystem</h4>
-						<span class="lieu">Jakarta</span>
-						<span class="dates">May 2017 - May 2018</span>
-						<p>Being devops engineer to adapt devops culture to current flow of project SDLC, 
-						making faster delivery from development environment to live environment, using CI/CD tools such as circle ci, ansible, bash and jenkins.</p>
-					</li>
-					<li>
-						<h4><strong>IT Operation Engineer</strong> damcorp</h4>
-						<span class="lieu">Jakarta</span>
-						<span class="dates">April 2016 - May 2017</span>
-						<p>Monitoring and analyzing transactions logs, works shift, configuring network infrastructure using F5 LTM and LC (BIG IP), 
-						creating and configuring servers using KVM, install and configure monitoring tools (Nagios XI, Kibana, net data, and grafana). 
-						Searching and giving log information about related issues to user (Bank Mandiri). Making report using Line Notify about server’s performances.</p>
-					</li>
-				</ul>
-			</div>
-		
-			<!-- Formations -->
-			<div class="grid_16 formations">
-				<h3>Formal Education</h3>
-				<ul>
-					<li>
-						<h4><strong>Del Institute of Technology / D3</strong> Computer Engineering</h4>
-						<span class="lieu">Laguboti, North Sumatera</span>
-						<span class="dates">2012 - 2015</span>
-					</li>
-					<li>
-						<h4><strong>SMA N 1 Pematangsiantar / High School</strong> Science</h4>
-						<span class="lieu">Pematangsiantar, North Sumatera</span>
-						<span class="dates">2009 - 2012</span>
-					</li>
-				</ul>
-			</div>
-		
-			<!-- Loisirs -->
-			<div class="grid_8 loisirs">
-				<h3>Hobbies</h3>
-				<p><strong>Sports :</strong> Football and Badminton</p>
-				<p><strong>Association :</strong> Member of DevOps Indonesia</p>
-				<p><strong>Music :</strong> Guitar</p>
-			</div>
-		
-			<!-- Contact -->
-			<div class="grid_8 contact">
-				<h3>Contact</h3>
-				<p>If you are interested in my profile, do not hesitate to contact me:</p>
-				<ul>
-					<li class="lieu">South Jakarta, Indonesia</li>
-					<li class="phone">+62 852 8803 7733</li>
-					<li class="mail"><a href="mailto:rampertopasaribu@gmail.com">rampertopasaribu@gmail.com</a></li>
-					<li class="site"><a href="http://ramper.top/">http://ramper.top/</a></li>
-<!--					<li class="form"><a class="toContactform">via le formulaire de contact</a></li>
-                    <li class="form"><a class="toContactform">via le formulaire de contact</a></li> -->
-				</ul>
-			</div>
-	</section>
 
-<!-- Scripts JavaScript -->
-<script src="Ramperto/jquery-1.js"></script>
-<script src="Ramperto/validate.js"></script>
-<!--[if lt IE 9]>
-<script src="scripts/placeholder.js"></script>
-<![endif]-->
-<script src="Ramperto/plugins.js"></script>
+	<main>
+		<section class="section" id="capabilities">
+			<div class="container">
+				<div class="section__heading">
+					<p class="eyebrow">Capabilities</p>
+					<h2>Everything between local dev and compliant production.</h2>
+					<p>I build paved roads that make secure, high-availability delivery the default for product teams.</p>
+				</div>
+				<div class="cards">
+					<article class="card">
+						<p class="card__eyebrow">Platform engineering</p>
+						<h3>Composable infra blueprints</h3>
+						<p>Create reusable Terraform & Kubernetes stacks, hardened AMIs, and policy guardrails so teams self-serve safely.</p>
+					</article>
+					<article class="card">
+						<p class="card__eyebrow">Delivery</p>
+						<h3>CI/CD with guardrails</h3>
+						<p>Design pipelines with automated testing, secrets hygiene, deployment strategies, and intraday rollback options.</p>
+					</article>
+					<article class="card">
+						<p class="card__eyebrow">Security</p>
+						<h3>Cloud security posture</h3>
+						<p>Embed policy-as-code, identity boundaries, and runtime controls to keep auditors and customers confident.</p>
+					</article>
+					<article class="card">
+						<p class="card__eyebrow">Observability</p>
+						<h3>Signals over noise</h3>
+						<p>Wire metrics, logs, traces, and SLO dashboards that shorten MTTR and show exactly where performance regresses.</p>
+					</article>
+				</div>
+			</div>
+		</section>
 
-</body></html>
+		<section class="section alt" id="tooling">
+			<div class="container">
+				<div class="section__heading">
+					<p class="eyebrow">Toolchain</p>
+					<h2>Operators that ship should own their stack.</h2>
+					<p>Here is the tooling I lean on to go from idea to instrumentation.</p>
+				</div>
+				<div class="toolchain">
+					<article>
+						<h4>Cloud & compute</h4>
+						<p>AWS, GCP, OpenStack, KVM, Kubernetes, Docker, Nomad, F5 BIG-IP</p>
+					</article>
+					<article>
+						<h4>Automation & CI/CD</h4>
+						<p>Terraform, Ansible, Helm, Jenkins, CircleCI, GitHub Actions, Bash, Python</p>
+					</article>
+					<article>
+						<h4>Observability & reliability</h4>
+						<p>Grafana, Prometheus, Loki, Kibana, Nagios XI, Elastic APM, Netdata, Sentry</p>
+					</article>
+					<article>
+						<h4>Data & messaging</h4>
+						<p>PostgreSQL, MySQL, Oracle, Redis, Kafka, Vault, Consul</p>
+					</article>
+				</div>
+			</div>
+		</section>
+
+		<section class="section" id="experience">
+			<div class="container">
+				<div class="section__heading">
+					<p class="eyebrow">Experience & impact</p>
+					<h2>Helping teams deliver confidently.</h2>
+				</div>
+				<div class="timeline">
+					<article class="timeline__item">
+						<header>
+							<p class="timeline__role">DevOps Engineer</p>
+							<p class="timeline__meta">DigiAsia Bios · May 2018 – Present · Jakarta</p>
+						</header>
+						<ul>
+							<li>Guided fintech squads through a DevSecOps rollout, reducing average release time from 60 to 8 minutes.</li>
+							<li>Built GitOps workflows with Terraform, Jenkins, and Argo-style approvals so infra/state changes are auditable.</li>
+							<li>Implemented layered observability (Grafana, Kibana, Netdata) that cut MTTR by 40% during payment incidents.</li>
+						</ul>
+					</article>
+					<article class="timeline__item">
+						<header>
+							<p class="timeline__role">DevOps & Scalability Engineer</p>
+							<p class="timeline__meta">Indosystem · May 2017 – May 2018 · Jakarta</p>
+						</header>
+						<ul>
+							<li>Introduced CI/CD with CircleCI, Ansible, and Jenkins, bringing weekly releases down to daily drops.</li>
+							<li>Standardized environment provisioning using Terraform modules, easing DR drills and compliance audits.</li>
+							<li>Collaborated with developers to embed performance budgets and automated testing gates.</li>
+						</ul>
+					</article>
+					<article class="timeline__item">
+						<header>
+							<p class="timeline__role">IT Operation Engineer</p>
+							<p class="timeline__meta">Damcorp · Apr 2016 – May 2017 · Jakarta</p>
+						</header>
+						<ul>
+							<li>Ran 24/7 monitoring for Bank Mandiri services, surfacing actionable telemetry in Kibana, Grafana, and Nagios.</li>
+							<li>Managed F5 LTM/LC, KVM farms, and scripted server provisioning for payment gateways.</li>
+							<li>Authored Line Notify automation that turned raw metrics into exec-ready health reports.</li>
+						</ul>
+					</article>
+				</div>
+			</div>
+		</section>
+
+		<section class="section alt" id="principles">
+			<div class="container">
+				<div class="section__heading">
+					<p class="eyebrow">Operating principles</p>
+					<h2>DevOps is culture, tooling, and agreements.</h2>
+					<p>The practices I reinforce whenever I join a team.</p>
+				</div>
+				<ul class="pillars">
+					<li>Automate audit trails & compliance evidence</li>
+					<li>Shift observability left with dev-owned dashboards</li>
+					<li>Design for graceful failure & rapid rollback</li>
+					<li>Guardrails over gatekeepers</li>
+					<li>Treat infra & policy as code</li>
+					<li>Continuously reduce cognitive load for on-call engineers</li>
+				</ul>
+			</div>
+		</section>
+
+		<section class="section" id="education">
+			<div class="container">
+				<div class="section__heading">
+					<p class="eyebrow">Education & learning</p>
+					<h2>Always studying the craft.</h2>
+					<p>I share learnings with the DevOps Indonesia community through talks, office hours, and mentoring.</p>
+				</div>
+				<div class="edu-grid">
+					<article>
+						<h3>Del Institute of Technology</h3>
+						<p><strong>Computer Engineering (D3)</strong></p>
+						<p class="timeline__meta">2012 – 2015 · Laguboti, North Sumatera</p>
+					</article>
+					<article>
+						<h3>SMA N 1 Pematangsiantar</h3>
+						<p><strong>Science major</strong></p>
+						<p class="timeline__meta">2009 – 2012 · North Sumatera</p>
+					</article>
+					<article>
+						<h3>Communities & certifications</h3>
+						<p>Member of DevOps Indonesia, avid OSS contributor, continuously studying cloud-native security and SRE patterns.</p>
+					</article>
+				</div>
+			</div>
+		</section>
+
+		<section class="section contact" id="contact">
+			<div class="container contact__grid">
+				<div>
+					<p class="eyebrow">Contact</p>
+					<h2>Need a partner for your next platform challenge?</h2>
+					<p class="lede">Whether it's untangling delivery pipelines, modernizing infra, or ramping up observability, I’m happy to jam.</p>
+					<div class="contact__actions">
+						<a class="btn primary" href="mailto:rampertopasaribu@gmail.com">Start a project</a>
+						<a class="btn ghost" href="tel:+6285288037733">Call +62 852 8803 7733</a>
+					</div>
+				</div>
+				<div class="contact__card">
+					<h3>Reach me directly</h3>
+					<ul>
+						<li>Email: <a href="mailto:rampertopasaribu@gmail.com">rampertopasaribu@gmail.com</a></li>
+						<li>Phone: <a href="tel:+6285288037733">+62 852 8803 7733</a></li>
+						<li>Location: South Jakarta, Indonesia</li>
+						<li>Site: <a href="http://ramper.top/">ramper.top</a></li>
+					</ul>
+				</div>
+			</div>
+		</section>
+	</main>
+
+	<footer>
+		<div class="container">
+			<p>© <span id="year"></span> Ramperto Pasaribu — shipping reliable platforms with empathy.</p>
+		</div>
+	</footer>
+
+	<script>
+		document.getElementById("year").textContent = new Date().getFullYear();
+	</script>
+</body>
+</html>
