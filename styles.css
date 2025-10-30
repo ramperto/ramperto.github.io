@@ -192,6 +192,10 @@
 			color: var(--muted);
 		}
 
+		.section__heading p.section__heading-line {
+			max-width: none;
+		}
+
 		.cards {
 			display: grid;
 			grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
