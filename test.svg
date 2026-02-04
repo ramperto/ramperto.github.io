@@ -1,0 +1,4 @@
+<svg xmlns='http://www.w3.org/2000/svg' width='200' height='100'>
+  <rect width='200' height='100' fill='#123456'/>
+  <text x='10' y='60' fill='white' font-size='24'>Test</text>
+</svg>
